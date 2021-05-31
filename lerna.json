@@ -1,0 +1,6 @@
+{
+  "packages": ["ts-packages/*", "examples/*"],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}

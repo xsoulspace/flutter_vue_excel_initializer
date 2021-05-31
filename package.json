@@ -1,0 +1,23 @@
+{
+  "name": "flutter_vue_event_bus",
+  "version": "0.0.1",
+  "description": "Event Bus between flutter and vue",
+  "main": "index.js",
+  "repository": "git@github.com:xsoulspace/flutter_vue_event_bus.git",
+  "author": "Anton Malofeev <arenukvern@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "ts-packages/*",
+    "examples/*"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0",
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
