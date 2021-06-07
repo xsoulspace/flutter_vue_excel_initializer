@@ -17,15 +17,39 @@ Consist from one simple widget that installs excel to html parent window
 
 
 ```javascript
+const excelInstalledEventName = "excel-initialized";
+const excelInstallEventName = "";
+
+const successEvent =  new CustomEvent(
+  excelInstalledEventName, { detail: { isIntialized: true }}
+);
+const unsuccessEvent = new CustomEvent(
+  excelInstalledEventName, { detail: { isIntialized: false }}
+)
+
 function initOfficeScript() {
+  console.log('intializing office')
   const scriptTag = document.createElement('script')
   scriptTag.src =
     'https://appsforoffice.microsoft.com/lib/1/hosted/office.js'
   scriptTag.id = 'office'
-  scriptTag.addEventListener('load', () => {
-    Office.onReady(async (context) => context)
-  })
+  scriptTag.addEventListener('load', () => {})
+  try {
+    const info = await Office.onReady(async (context) => context)
+    // we check all platforms and if every is null
+    // then deinstall script and return false
+    for (const platform of Object.values(info)) {
+      if (platform != null) {
+        window.dispatchEvent(successEventsuccessEvent)
+        return
+      }
+    }
+    window.dispatchEvent(unsuccessEventsuccessEvent)
+  } catch (error) {
+    window.dispatchEvent(unsuccessEventsuccessEvent)
+  }
   document.getElementsByTagName('head')[0].appendChild(scriptTag)
 }
-window.addEventListener('initialize-excel', () => initOfficeScript())
+
+window.addEventListener(excelInstallEventName, initOfficeScript)
 ```
