@@ -18,7 +18,7 @@ Consist from one simple widget that installs excel to html parent window
 
 ```javascript
 const excelInstalledEventName = "excel-initialized";
-const excelInstallEventName = "";
+const excelInstallEventName = "initialize-excel";
 
 const successEvent =  new CustomEvent(
   excelInstalledEventName, { detail: { isIntialized: true }}
