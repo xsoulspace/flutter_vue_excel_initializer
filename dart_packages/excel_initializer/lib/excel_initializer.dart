@@ -15,12 +15,13 @@ final instializedExcelEvent = CustomEvent(
 
 class ExcelInitializer extends StatelessWidget {
   static void initializeExcel({ValueChanged<bool?>? onInitialized}) {
-    window.dispatchEvent(
-      instializeExcelEvent,
-    );
     window.addEventListener(
       instializedExcelEvent.type,
-      (event) => onInitialized?.call((event as CustomEvent).detail as bool?),
+      (event) => onInitialized
+          ?.call((event as CustomEvent?)?.detail['isIntialized'] as bool?),
+    );
+    window.dispatchEvent(
+      instializeExcelEvent,
     );
   }
 

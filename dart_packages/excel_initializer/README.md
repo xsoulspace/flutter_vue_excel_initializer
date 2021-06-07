@@ -17,15 +17,15 @@ Consist from one simple widget that installs excel to html parent window
 
 
 ```javascript
-const excelInstalledEventName = "excel-initialized";
-const excelInstallEventName = "initialize-excel";
+const excelInstalledEventName = 'excel-initialized'
+const excelInstallEventName = 'initialize-excel'
 
-const successEvent =  new CustomEvent(
-  excelInstalledEventName, { detail: { isIntialized: true }}
-);
-const unsuccessEvent = new CustomEvent(
-  excelInstalledEventName, { detail: { isIntialized: false }}
-)
+const successEvent = new CustomEvent(excelInstalledEventName, {
+  detail: { isIntialized: true },
+})
+const unsuccessEvent = new CustomEvent(excelInstalledEventName, {
+  detail: { isIntialized: false },
+})
 
 function initOfficeScript() {
   console.log('intializing office')
@@ -35,18 +35,18 @@ function initOfficeScript() {
   scriptTag.id = 'office'
   scriptTag.addEventListener('load', () => {})
   try {
-    const info = await Office.onReady(async (context) => context)
+    const info = Office.onReady(async (context) => context)
     // we check all platforms and if every is null
     // then deinstall script and return false
     for (const platform of Object.values(info)) {
       if (platform != null) {
-        window.dispatchEvent(successEventsuccessEvent)
+        window.dispatchEvent(successEvent)
         return
       }
     }
-    window.dispatchEvent(unsuccessEventsuccessEvent)
+    window.dispatchEvent(unsuccessEvent)
   } catch (error) {
-    window.dispatchEvent(unsuccessEventsuccessEvent)
+    window.dispatchEvent(unsuccessEvent)
   }
   document.getElementsByTagName('head')[0].appendChild(scriptTag)
 }
