@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com:xsoulspace/flutter_vue_excel_intializer"
+    "url": "git+https://github.com:xsoulspace/flutter_vue_excel_intializer/ts-packages/vue_excel_intializer"
   },
   "bugs": {
     "url": "https://github.com/xsoulspace/flutter_vue_excel_intializer/issues"
