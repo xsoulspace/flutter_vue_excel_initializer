@@ -1,4 +1,4 @@
-import { defineComponent, h, onMounted, onUnmounted } from 'vue'
+import { defineComponent, onMounted, onUnmounted } from 'vue'
 const _excelPuginsNames = [
   'OSFPerformance',
   'OSF',
@@ -74,7 +74,7 @@ class _ExcelIntializer {
 }
 export const ExcelIntializer = defineComponent({
   name: 'ExcelInitializer',
-  setup() {
+  setup(_props, { slots }) {
     onMounted(() => {
       if (parent)
         parent.addEventListener(
@@ -90,6 +90,6 @@ export const ExcelIntializer = defineComponent({
           _ExcelIntializer.installPlugins
         )
     })
-    return () => h(<slot />)
+    return () => <>{slots.default?.()}</>
   }
 })
