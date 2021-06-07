@@ -1,4 +1,4 @@
-# flutter_vue_event_bus
+# html_view
 
 A new Flutter package project.
 

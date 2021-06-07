@@ -1,15 +1,15 @@
-name: flutter_vue_event_bus
+name: html_view
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: 'https://github.com/xsoulspace/flutter_vue_event_bus'
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=2.13.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  universal_html: ^2.0.8  
 
 dev_dependencies:
   flutter_test:
