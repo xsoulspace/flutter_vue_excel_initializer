@@ -23,9 +23,8 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite preview",
-    "build": "yarn clean && yarn compile",
+    "build": "vite build && tsc --emitDeclarationOnly",
     "clean": "rm -rf ./dist ./coverage ./generated",
-    "compile": "tsc -p tsconfig.build.json",
     "patch": "yarn version --patch && git push && git push origin --tags",
     "minor": "yarn version --minor && git push && git push origin --tags"
   },
@@ -34,6 +33,12 @@
   },
   "peerDependencies": {
     "vue": "^3.1.0-beta.7"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/vue-excel-initializer.es.js",
+      "require": "./dist/vue-excel-initializer.umd.js"
+    }
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.3",
