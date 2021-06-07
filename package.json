@@ -1,7 +1,7 @@
 {
-  "name": "flutter_vue_event_bus",
+  "name": "flutter_vue_excel_intializer",
   "version": "0.0.1",
-  "description": "Event Bus between flutter and vue",
+  "description": "Flutter and Vue components to work with Excel",
   "main": "index.js",
   "repository": "git@github.com:xsoulspace/flutter_vue_event_bus.git",
   "author": "Anton Malofeev <arenukvern@gmail.com>",

@@ -1,6 +1,7 @@
 {
   "name": "vue-excel-initializer",
   "version": "0.0.0",
+  "repository": "git@github.com:xsoulspace/flutter_vue_excel_intializer.git",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",

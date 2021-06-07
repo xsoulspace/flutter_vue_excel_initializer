@@ -1,7 +1,7 @@
 name: html_view
-description: A new Flutter package project.
+description: A helper widget to work with html view
 version: 0.0.1
-homepage: 'https://github.com/xsoulspace/flutter_vue_event_bus'
+homepage: "https://github.com/xsoulspace/flutter_vue_excel_intializer"
 
 environment:
   sdk: ">=2.13.0 <3.0.0"
