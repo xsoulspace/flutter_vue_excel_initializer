@@ -25,7 +25,7 @@ class HtmlView extends StatefulWidget {
   final String targetOrigin;
   final ValueChanged onMessage;
   final RePostMessage postMessage;
-  final ValueChanged<Event>? onWindowLoad;
+  final ValueChanged<MessageEvent>? onWindowLoad;
   @override
   _HtmlViewState createState() => _HtmlViewState();
 }
@@ -39,7 +39,7 @@ class _HtmlViewState extends State<HtmlView> {
       ..src = widget.src
       ..style.border = 'none'
       ..onLoad.listen(
-        (event) => widget.onWindowLoad?.call(event),
+        (event) => widget.onWindowLoad?.call(event as MessageEvent),
       );
     ui.platformViewRegistry.registerViewFactory(
       viewKey,
