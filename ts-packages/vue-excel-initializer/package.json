@@ -1,11 +1,33 @@
 {
-  "name": "vue-excel-initializer",
-  "version": "0.0.0",
-  "repository": "git@github.com:xsoulspace/flutter_vue_excel_intializer.git",
+  "name": "@xsoulspace/vue-excel-initializer",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "author": {
+    "name": "Anton Malofeev",
+    "email": "anton@xsoulspace.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:xsoulspace/flutter_vue_excel_intializer"
+  },
+  "bugs": {
+    "url": "https://github.com/xsoulspace/flutter_vue_excel_intializer/issues"
+  },
+  "homepage": "https://github.com/xsoulspace/flutter_vue_excel_intializer#readme",
+  "private": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "build": "yarn clean && yarn compile",
+    "clean": "rm -rf ./dist ./coverage ./generated",
+    "compile": "tsc -p tsconfig.build.json",
+    "patch": "yarn version --patch && git push && git push origin --tags",
+    "minor": "yarn version --minor && git push && git push origin --tags"
   },
   "dependencies": {
     "vue": "^3.1.0-beta.7"
