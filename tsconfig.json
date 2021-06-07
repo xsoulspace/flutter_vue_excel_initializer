@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": "./ts-packages",
+    "paths": {
+      "@xsoulspace/vue-excel-initializer": ["vue-excel-initializer/lib"]
+    }
+  }
+}

@@ -1,15 +1,6 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "declaration": true,
-    "lib": ["esnext", "dom"]
-  },
-  "include": ["lib/**/*.ts", "lib/**/*.d.ts", "lib/**/*.tsx", "lib/**/*.vue"]
+  "extends": "../../tsconfig.json",
+  "types": ["lib"],
+  "include": ["lib/**/*.ts", "lib/**/*.d.ts", "lib/**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
 }
