@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, onUnmounted } from 'vue'
+import { defineComponent, h, onMounted, onUnmounted } from 'vue'
 const _excelPuginsNames = [
   'OSFPerformance',
   'OSF',
@@ -57,7 +57,7 @@ const _excelPuginsNames = [
   'OfficeExtensionBatch',
   '_OfficeRuntimeWeb',
   'OfficeRuntime',
-  'oteljs_agave',
+  'oteljs_agave'
 ]
 
 const _initializeExcelEvent = new Event('initialize-excel')
@@ -90,6 +90,6 @@ export const ExcelIntializer = defineComponent({
           _ExcelIntializer.installPlugins
         )
     })
-  },
-  template: `<div><slot/><div/>`,
+    return () => h(<slot />)
+  }
 })
