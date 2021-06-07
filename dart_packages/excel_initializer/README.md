@@ -27,5 +27,5 @@ function initOfficeScript() {
   })
   document.getElementsByTagName('head')[0].appendChild(scriptTag)
 }
-window.addEventListener('intialize-excel', () => initOfficeScript())
+window.addEventListener('initialize-excel', () => initOfficeScript())
 ```

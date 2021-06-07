@@ -3,7 +3,12 @@ library excel_initializer;
 import 'package:flutter/widgets.dart';
 import 'package:universal_html/html.dart';
 
+final instializeExcelEvent = Event('initialize-excel');
+
 class ExcelInitializer extends StatelessWidget {
+  static void initializeExcel() => window.dispatchEvent(
+        instializeExcelEvent,
+      );
   const ExcelInitializer({
     required this.child,
     Key? key,
@@ -12,11 +17,7 @@ class ExcelInitializer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        window.dispatchEvent(
-          Event('intialize-excel'),
-        );
-      },
+      onTap: initializeExcel,
       child: child,
     );
   }
