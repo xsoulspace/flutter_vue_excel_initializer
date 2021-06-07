@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, onUnmounted } from 'vue/dist/vue.js'
+import { defineComponent, onMounted, onUnmounted } from 'vue'
 const _excelPuginsNames = [
   'OSFPerformance',
   'OSF',
