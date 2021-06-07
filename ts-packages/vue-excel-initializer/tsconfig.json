@@ -1,6 +1,10 @@
 {
   "extends": "../../tsconfig.json",
-  "types": ["lib"],
-  "include": ["lib/**/*.ts", "lib/**/*.d.ts", "lib/**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declarationDir": "dist",
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "exclude": ["node_modules", "dist"],
+  "include": ["lib/**/*.ts", "lib/**/*.d.ts", "lib/**/*.tsx", "lib/**/*.vue"]
 }
