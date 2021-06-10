@@ -19,7 +19,6 @@ typedef RedispatchEvent = void Function(DispatchEvent dispatchEvent);
 class HtmlView extends StatefulWidget {
   const HtmlView({
     required this.src,
-    required this.onMessage,
     required this.targetOrigin,
     this.postMessage,
     this.dispatchEvent,
@@ -28,7 +27,6 @@ class HtmlView extends StatefulWidget {
   }) : super(key: key);
   final String src;
   final String targetOrigin;
-  final ValueChanged onMessage;
   final RepostMessage? postMessage;
   final RedispatchEvent? dispatchEvent;
   final ValueChanged<MessageEvent>? onWindowLoad;
