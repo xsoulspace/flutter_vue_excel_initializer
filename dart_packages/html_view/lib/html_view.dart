@@ -45,23 +45,25 @@ class _HtmlViewState extends State<HtmlView> {
     iFrameElement = IFrameElement()
       ..src = widget.src
       ..style.border = 'none';
-    subscription = iFrameElement.onLoad.listen(
-      (event) => widget.onWindowLoad?.call(event as MessageEvent),
-    );
     ui.platformViewRegistry.registerViewFactory(
       viewKey,
       (int viewId) => iFrameElement,
     );
-    final contentWindow = iFrameElement.contentWindow;
-    if (contentWindow == null) {
-      throw Exception(
-        'contentWindow is null. Maybe iFrame is not initialized..',
-      );
-    }
-    final postMessage = contentWindow.postMessage;
-    final dispatchEvent = contentWindow.dispatchEvent;
-    widget.postMessage?.call(postMessage);
-    widget.dispatchEvent?.call(dispatchEvent);
+    subscription = iFrameElement.onLoad.listen(
+      (event) {
+        widget.onWindowLoad?.call(event as MessageEvent);
+        final contentWindow = iFrameElement.contentWindow;
+        if (contentWindow == null) {
+          throw Exception(
+            'contentWindow is null. Maybe iFrame is not initialized..',
+          );
+        }
+        final postMessage = contentWindow.postMessage;
+        final dispatchEvent = contentWindow.dispatchEvent;
+        widget.postMessage?.call(postMessage);
+        widget.dispatchEvent?.call(dispatchEvent);
+      },
+    );
     super.initState();
   }
 
@@ -74,8 +76,7 @@ class _HtmlViewState extends State<HtmlView> {
   @override
   Widget build(BuildContext context) {
     return HtmlElementView(
-      viewType: 'webpage',
-      key: Key(viewKey),
+      viewType: viewKey,
     );
   }
 }
