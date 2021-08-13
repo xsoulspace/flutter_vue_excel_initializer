@@ -1,43 +1,22 @@
 library excel_initializer;
 
 import 'package:flutter/widgets.dart';
-import 'package:universal_html/html.dart';
 
-final instializeExcelEvent = Event('initialize-excel');
+import './src/excel_initializer_io.dart'
+    if (dart.library.js) './src/excel_initializer_js.dart';
 
-/// Dart analogue of
-/// new CustomEvent("excel-initialized", {  detail: { isIntialized: false }})
-///
-final instializedExcelEvent = CustomEvent(
-  'excel-initialized',
-  detail: {"isIntialized": false},
-);
-
-class ExcelInitializer extends StatelessWidget {
-  static void initializeExcel({ValueChanged<bool?>? onInitialized}) {
-    window.addEventListener(
-      instializedExcelEvent.type,
-      (event) => onInitialized
-          ?.call((event as CustomEvent?)?.detail['isIntialized'] as bool?),
-    );
-    window.dispatchEvent(
-      instializeExcelEvent,
-    );
-  }
-
-  const ExcelInitializer({
-    required this.child,
+class ExcelInitializerButton extends StatelessWidget {
+  const ExcelInitializerButton({
     this.onInitialized,
+    required this.child,
     Key? key,
   }) : super(key: key);
-  final Widget child;
   final ValueChanged<bool?>? onInitialized;
+  final Widget child;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        initializeExcel(onInitialized: onInitialized);
-      },
+    return ExcelInitializer(
+      onInitialized: onInitialized,
       child: child,
     );
   }
