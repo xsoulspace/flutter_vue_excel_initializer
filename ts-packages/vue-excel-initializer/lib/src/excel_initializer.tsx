@@ -66,8 +66,7 @@ class _ExcelIntializer {
   constructor() {}
   static installPlugins() {
     for (const extKey of _excelPuginsNames) {
-      //@ts-ignore
-      window[extKey] = window.parent[extKey]
+      window[extKey] ??= window.parent[extKey]
     }
     console.log('excel installed!')
   }
